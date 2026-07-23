@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import morgan from "morgan";
+import routes from "./routes";
 
 const app = express();
 
@@ -16,5 +17,7 @@ app.get("/health", (req: Request, res: Response) => {
         message: "Crypto API running"
     });
 });
+
+app.use("/api", routes);
 
 export default app;
